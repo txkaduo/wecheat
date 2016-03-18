@@ -55,6 +55,9 @@ module Wecheat
       self.cdatas.each_pair do |k,v|
         nodes << "<#{k}><![CDATA[#{v}]]></#{k}>"
       end
+
+      nodes << "<CreateTime>#{Time.new.to_i}</CreateTime>"
+      nodes << "<MsgId>#{Random.new.rand(999999999)}</MsgId>"
       "<xml>#{nodes.join}</xml>"
     end
 
